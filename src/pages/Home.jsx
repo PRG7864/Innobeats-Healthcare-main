@@ -230,43 +230,194 @@ function Home() {
       </section>
 
       {/* --- About Preview Section --- */}
-      <section className="section about-preview">
-        <ScrollReveal animation="slide-right" delay={100}>
-          <img src="/assets/hero-icu.jpg" alt="Hospital critical care environment with clinical equipment" />
-        </ScrollReveal>
-        <div>
-          <ScrollReveal animation="fade-up" delay={100}>
-            <p className="eyebrow">About the company</p>
-            <h2>Innobeats brings medical technology, infrastructure, and service into one accountable partner.</h2>
-            <p className="large-copy">
-              We support hospitals across equipment selection, project planning, installation coordination, user
-              orientation, documentation, and life-cycle service. The goal is simple: dependable technology that works for
-              clinicians, biomedical teams, and hospital administrators.
-            </p>
-          </ScrollReveal>
-          <div className="about-points">
-            <ScrollReveal as="article" animation="scale-in" delay={100}>
-              <strong>Clinical</strong>
-              <span>Solutions mapped to real care settings and workflows.</span>
+      <section className="section about-preview" aria-labelledby="about-heading">
+        {/* Left column: Rich Photo Composition with Parallax/Float effects */}
+        <div className="about-media-column">
+          <div className="about-glow-overlay"></div>
+          
+          <div className="about-media-composition">
+            {/* Main large image */}
+            <ScrollReveal className="about-main-image-wrap" animation="fade-up" delay={100}>
+              <img 
+                src="/assets/operating-theatre.jpg" 
+                alt="Innobeats modular operating theatre installation" 
+                className="about-main-image"
+              />
             </ScrollReveal>
-            <ScrollReveal as="article" animation="scale-in" delay={200}>
-              <strong>Project</strong>
-              <span>Planning support for rooms, systems, utilities, and commissioning.</span>
+            
+            {/* Left overlapping floating image */}
+            <ScrollReveal className="about-float-image-left" animation="slide-right" delay={200}>
+              <img 
+                src="/assets/about-engineer-left.png" 
+                alt="Biomedical engineers calibrating equipment" 
+              />
             </ScrollReveal>
-            <ScrollReveal as="article" animation="scale-in" delay={300}>
-              <strong>Quality</strong>
-              <span>Documentation-minded delivery for institutional review.</span>
+            
+            {/* Top-right overlapping floating image */}
+            <ScrollReveal className="about-float-image-right" animation="slide-left" delay={300}>
+              <img 
+                src="/assets/about-engineer-right.png" 
+                alt="Technicians configuring monitor screens" 
+              />
             </ScrollReveal>
-            <ScrollReveal as="article" animation="scale-in" delay={400}>
-              <strong>Service</strong>
-              <span>Responsive support after installation and handover.</span>
+
+            {/* Bottom-right stats frosted card */}
+            <ScrollReveal className="about-stats-card-overlay" animation="scale-in" delay={400}>
+              <div className="about-stats-list">
+                
+                <div className="about-stat-item">
+                  <div className="about-stat-icon-wrap bg-soft-green text-brand-green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                  </div>
+                  <div className="about-stat-text">
+                    <span className="about-stat-number">23+</span>
+                    <span className="about-stat-label">Years Experience</span>
+                  </div>
+                </div>
+
+                <div className="about-stat-item">
+                  <div className="about-stat-icon-wrap bg-soft-blue text-brand-blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                      <path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4M10 7h4M10 11h4" />
+                    </svg>
+                  </div>
+                  <div className="about-stat-text">
+                    <span className="about-stat-number">500+</span>
+                    <span className="about-stat-label">Hospitals Supported</span>
+                  </div>
+                </div>
+
+                <div className="about-stat-item">
+                  <div className="about-stat-icon-wrap bg-soft-navy text-brand-navy">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                      <rect x="2" y="2" width="20" height="6" rx="2" />
+                      <rect x="2" y="9" width="20" height="6" rx="2" />
+                      <rect x="2" y="16" width="20" height="6" rx="2" />
+                      <path d="M6 5h.01M6 12h.01M6 19h.01M18 5h.01M18 12h.01M18 19h.01" />
+                    </svg>
+                  </div>
+                  <div className="about-stat-text">
+                    <span className="about-stat-number">1000+</span>
+                    <span className="about-stat-label">Equipment Installations</span>
+                  </div>
+                </div>
+
+                <div className="about-stat-item">
+                  <div className="about-stat-icon-wrap bg-soft-orange text-brand-orange">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </div>
+                  <div className="about-stat-text">
+                    <span className="about-stat-number">Pan-India</span>
+                    <span className="about-stat-label">Presence</span>
+                  </div>
+                </div>
+
+              </div>
             </ScrollReveal>
           </div>
-          <ScrollReveal animation="fade-up" delay={200}>
-            <Link className="text-link" to="/about.html">
-              Read about Innobeats
-            </Link>
+        </div>
+
+        {/* Right column: Content, description, and 2x2 grid of modern cards */}
+        <div className="about-content-column">
+          <ScrollReveal animation="fade-up" delay={100}>
+            <p className="eyebrow green-eyebrow">ABOUT INNOBEATS TECHNOLOGY</p>
+            <h2 id="about-heading" className="about-main-heading">
+              Transforming Healthcare Infrastructure Through Technology, Expertise &amp; Long-Term Partnership
+            </h2>
+            <p className="about-main-copy">
+              For over 23 years, Innobeats Technology has empowered hospitals, healthcare institutions, and
+              government organizations across India with advanced medical equipment solutions, turnkey
+              hospital infrastructure projects, biomedical engineering support, and lifecycle service
+              management. From planning and procurement to installation and maintenance, we deliver
+              healthcare technology that improves operational efficiency and patient care outcomes.
+            </p>
           </ScrollReveal>
+
+          {/* Grid cards */}
+          <div className="about-features-grid">
+            <ScrollReveal as="article" className="about-feature-card" animation="fade-up" delay={150}>
+              <div className="about-feature-icon-container bg-soft-green">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="about-feature-icon text-brand-green">
+                  <path d="M32 40.5l-2.4-2.2C21.1 31.4 15 26.2 15 19.8 15 14.6 19.1 10.5 24.3 10.5c3 0 5.8 1.4 7.7 3.6 1.9-2.2 4.7-3.6 7.7-3.6 5.2 0 9.3 4.1 9.3 9.3 0 6.4-6.1 11.6-14.6 18.5L32 40.5z" stroke="#009b5a" fill="#eaf8f1" />
+                  <path d="M15 19.8h-7M49 19.8h-7M32 10.5V4M32 40.5v8" />
+                  <path d="M21 30l-5 5M43 30l5 5M21 13l-5-5M43 13l5-5" />
+                  <circle cx="5" cy="19.8" r="3" fill="#ffffff" stroke="#2459a8" strokeWidth="2" />
+                  <circle cx="59" cy="19.8" r="3" fill="#ffffff" stroke="#2459a8" strokeWidth="2" />
+                  <circle cx="32" cy="2" r="2" fill="#ffffff" stroke="#2459a8" strokeWidth="2" />
+                  <circle cx="32" cy="51" r="3" fill="#ffffff" stroke="#2459a8" strokeWidth="2" />
+                  <circle cx="14" cy="37" r="2.5" fill="#ffffff" stroke="#2459a8" strokeWidth="2" />
+                  <circle cx="50" cy="37" r="2.5" fill="#ffffff" stroke="#2459a8" strokeWidth="2" />
+                  <circle cx="14" cy="6" r="2.5" fill="#ffffff" stroke="#2459a8" strokeWidth="2" />
+                  <circle cx="50" cy="6" r="2.5" fill="#ffffff" stroke="#2459a8" strokeWidth="2" />
+                </svg>
+              </div>
+              <div className="about-feature-text">
+                <h3>Healthcare Technology Solutions</h3>
+                <p>Advanced medical equipment and integrated healthcare systems tailored to clinical needs.</p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal as="article" className="about-feature-card" animation="fade-up" delay={250}>
+              <div className="about-feature-icon-container bg-soft-blue">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="about-feature-icon text-brand-blue">
+                  <rect x="6" y="8" width="52" height="42" rx="4" fill="#f0f4fa" stroke="#2459a8" strokeWidth="2" />
+                  <path d="M12 14h18v16H12zM38 14h14v28H38zM12 36h18v6H12z" stroke="#2459a8" strokeDasharray="3 3" />
+                  <path d="M12 22h18M20 14v16" stroke="#2459a8" />
+                  <path d="M10 52l32-32v32H10z" fill="#fff6d9" stroke="#f6bd21" strokeWidth="2" />
+                  <path d="M22 46l10-10v10H22z" fill="#ffffff" stroke="#f6bd21" />
+                  <path d="M14 52h2M18 52h2M22 52h2M26 52h2M30 52h2M34 52h2M38 52h2M42 48v2M42 44v2M42 40v2M42 36v2M42 32v2M42 28v2M42 24v2" stroke="#f6bd21" />
+                </svg>
+              </div>
+              <div className="about-feature-text">
+                <h3>Hospital Infrastructure Expertise</h3>
+                <p>Comprehensive support for planning, deployment, and expansion of healthcare facilities.</p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal as="article" className="about-feature-card" animation="fade-up" delay={150}>
+              <div className="about-feature-icon-container bg-soft-yellow">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="about-feature-icon text-brand-yellow">
+                  <path d="M32 14c-9.9 0-18 8.1-18 18s8.1 18 18 18 18-8.1 18-18-8.1-18-18-18z" stroke="#2459a8" strokeWidth="2" />
+                  <path d="M32 6v8M32 50v8M6 32h8M50 32h8M13.6 13.6l5.7 5.7M44.7 44.7l5.7 5.7M13.6 50.4l5.7-5.7M44.7 19.3l5.7-5.7" stroke="#2459a8" strokeWidth="3" />
+                  <circle cx="32" cy="32" r="8" fill="#ffffff" stroke="#2459a8" strokeWidth="2" />
+                  <path d="M18 46l10-10M20 48l8-8" stroke="#009b5a" strokeWidth="3" strokeLinecap="round" />
+                  <path d="M13.5 50.5a3.5 3.5 0 1 0 5-5 3.5 3.5 0 0 0-5 5z" fill="#eaf8f1" stroke="#009b5a" strokeWidth="2" />
+                  <path d="M25 33.5l5.5-5.5a4.2 4.2 0 0 1 6 0 4.2 4.2 0 0 1 0 6l-5.5 5.5" stroke="#009b5a" strokeWidth="2.5" fill="none" />
+                  <path d="M28.5 32l3-3" stroke="#009b5a" strokeWidth="2" />
+                </svg>
+              </div>
+              <div className="about-feature-text">
+                <h3>Biomedical Engineering Support</h3>
+                <p>Installation, calibration, training, compliance, and preventive maintenance services.</p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal as="article" className="about-feature-card" animation="fade-up" delay={250}>
+              <div className="about-feature-icon-container bg-soft-orange">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="about-feature-icon text-brand-orange">
+                  <circle cx="32" cy="32" r="14" fill="#f4f8fc" stroke="#2459a8" strokeWidth="2" />
+                  <path d="M32 18a14 14 0 0 0 0 28M32 18a14 14 0 0 1 0 28M18 32h28M21.5 25h21M21.5 39h21" stroke="#2459a8" strokeWidth="1" />
+                  <path d="M16 38c2 4 6 7 11 7 4 0 6-2 8-5" stroke="#009b5a" strokeWidth="2" />
+                  <path d="M12 34c2 3 5 5 9 6 3 0 4-2 6-4" stroke="#009b5a" strokeWidth="1.5" />
+                  <path d="M48 38c-2 4-6 7-11 7-4 0-6-2-8-5" stroke="#009b5a" strokeWidth="2" />
+                  <path d="M52 34c-2 3-5 5-9 6-3 0-4-2-6-4" stroke="#009b5a" strokeWidth="1.5" />
+                  <path d="M48 18c-3.5-3.5-8.5-5.5-14-5.5-9.5 0-17.5 6.5-19.5 15.5" stroke="#dd3c31" strokeWidth="2" strokeDasharray="4 2" />
+                  <path d="M16 46c3.5 3.5 8.5 5.5 14 5.5 9.5 0 17.5-6.5 19.5-15.5" stroke="#dd3c31" strokeWidth="2" />
+                  <path d="M44 20h5v-5M20 44h-5v5" stroke="#dd3c31" strokeWidth="2" />
+                </svg>
+              </div>
+              <div className="about-feature-text">
+                <h3>Long-Term Service Partnership</h3>
+                <p>Reliable lifecycle management, AMC support, and rapid-response technical assistance.</p>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
