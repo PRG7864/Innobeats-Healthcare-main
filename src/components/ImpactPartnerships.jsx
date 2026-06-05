@@ -132,7 +132,7 @@ export default function ImpactPartnerships() {
             OUR IMPACT
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#153b78] tracking-tight leading-none mb-6">
-            Trusted by Leading Healthcare Institutions<br className="hidden md:inline" /> Across Central India
+            Trusted by Leading <span className="text-[#009b5a]">Healthcare Institutions</span><br className="hidden md:inline" /> Across Central India
           </h2>
           <p className="max-w-4xl mx-auto text-sm md:text-base text-[#637181] font-medium leading-relaxed">
             Delivering advanced medical technologies, critical care solutions, oncology platforms, and turnkey hospital 
@@ -191,7 +191,7 @@ export default function ImpactPartnerships() {
         {/* Partnerships Card with Infinite Marquee */}
         <div className="bg-white border border-[#153b78]/10 rounded-3xl py-10 px-4 md:px-8 shadow-md shadow-blue-900/3">
           <h3 className="text-center text-lg md:text-xl font-extrabold text-[#153b78] tracking-tight mb-8">
-            Building Transforming <span className="text-[#ff6600]">Partnerships</span> For Global Industry Leaders
+            Building Transforming <span className="text-[#009b5a]">Partnerships</span> For Global Industry Leaders
           </h3>
           
           {/* Logo Ticker Container */}

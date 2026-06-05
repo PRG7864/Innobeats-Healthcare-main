@@ -10,10 +10,10 @@ function Home() {
         <div className="hero-media" role="img" aria-label="Clinicians monitoring a patient in a modern medical environment"></div>
         <div className="hero-shade"></div>
         <div className="hero-content">
-          <p className="eyebrow animate-load-fade-up-1">Innovation for life</p>
-          <h1 id="hero-title" className="animate-load-fade-up-1">Transforming Healthcare
-            Through Advanced
-            Medical Technology</h1>
+          <p className="eyebrow animate-load-fade-up-1 text-brand-yellow">INNOVATION FOR LIFE</p>
+          <h1 id="hero-title" className="animate-load-fade-up-1">
+            Transforming <span className="text-brand-green">Healthcare</span> Through Advanced <span className="text-brand-green">Medical Technology</span>
+          </h1>
           <p className="hero-copy animate-load-fade-up-2">
             From critical care ventilators to modular operating theatres, 23 years of frontline clinical expertise powering healthcare transformation across Madhya Pradesh and Chhattisgarh.
           </p>
@@ -86,8 +86,10 @@ function Home() {
       {/* --- Product Ecosystem Section --- */}
       <section className="section product-section">
         <ScrollReveal className="product-section-left" animation="fade-up" delay={100}>
-          <p className="eyebrow">Innovation for Life</p>
-          <h2>Technology Engineered for the Demands of Modern Care.</h2>
+          <p className="eyebrow green-eyebrow">INNOVATION FOR LIFE</p>
+          <h2>
+            Technology Engineered for the <span className="text-brand-green">Demands</span> of <span className="text-brand-blue">Modern Care</span>.
+          </h2>
           <p className="large-copy">
             From critical care environments to advanced surgical infrastructure, our solutions are designed to enhance clinical performance, operational efficiency, and patient safety.
           </p>
@@ -202,27 +204,29 @@ function Home() {
       {/* --- Process Section --- */}
       <section className="section process-section">
         <ScrollReveal className="section-heading" animation="fade-up" delay={100}>
-          <p className="eyebrow">How we support hospitals</p>
-          <h2>Clear specification, careful deployment, accountable service.</h2>
+          <p className="eyebrow green-eyebrow">HOW WE SUPPORT HOSPITALS</p>
+          <h2>
+            Clear <span className="text-brand-green">specification</span>, careful <span className="text-brand-blue">deployment</span>, accountable <span className="text-brand-navy">service</span>.
+          </h2>
         </ScrollReveal>
         <div className="timeline-grid">
-          <ScrollReveal as="article" animation="fade-up" delay={100}>
-            <span>01</span>
+          <ScrollReveal as="article" className="timeline-card step-green" animation="fade-up" delay={100}>
+            <span className="timeline-badge">01</span>
             <h3>Clinical Discovery</h3>
             <p>Map patient population, procedure mix, room constraints, and biomedical engineering requirements.</p>
           </ScrollReveal>
-          <ScrollReveal as="article" animation="fade-up" delay={200}>
-            <span>02</span>
+          <ScrollReveal as="article" className="timeline-card step-blue" animation="fade-up" delay={200}>
+            <span className="timeline-badge">02</span>
             <h3>Product Planning</h3>
             <p>Define device selection, theatre layout, consumables, accessories, training, and documentation needs.</p>
           </ScrollReveal>
-          <ScrollReveal as="article" animation="fade-up" delay={300}>
-            <span>03</span>
+          <ScrollReveal as="article" className="timeline-card step-yellow" animation="fade-up" delay={300}>
+            <span className="timeline-badge">03</span>
             <h3>Implementation</h3>
             <p>Coordinate delivery, commissioning, user orientation, and acceptance checks with the hospital team.</p>
           </ScrollReveal>
-          <ScrollReveal as="article" animation="fade-up" delay={400}>
-            <span>04</span>
+          <ScrollReveal as="article" className="timeline-card step-orange" animation="fade-up" delay={400}>
+            <span className="timeline-badge">04</span>
             <h3>Life-cycle Care</h3>
             <p>Provide service planning, calibration reminders, preventive maintenance, and responsive clinical support.</p>
           </ScrollReveal>
@@ -234,37 +238,37 @@ function Home() {
         {/* Left column: Rich Photo Composition with Parallax/Float effects */}
         <div className="about-media-column">
           <div className="about-glow-overlay"></div>
-          
+
           <div className="about-media-composition">
             {/* Main large image */}
             <ScrollReveal className="about-main-image-wrap" animation="fade-up" delay={100}>
-              <img 
-                src="/assets/operating-theatre.jpg" 
-                alt="Innobeats modular operating theatre installation" 
+              <img
+                src="/assets/operating-theatre.jpg"
+                alt="Innobeats modular operating theatre installation"
                 className="about-main-image"
               />
             </ScrollReveal>
-            
+
             {/* Left overlapping floating image */}
             <ScrollReveal className="about-float-image-left" animation="slide-right" delay={200}>
-              <img 
-                src="/assets/about-engineer-left.png" 
-                alt="Biomedical engineers calibrating equipment" 
+              <img
+                src="/assets/about-engineer-left.png"
+                alt="Biomedical engineers calibrating equipment"
               />
             </ScrollReveal>
-            
+
             {/* Top-right overlapping floating image */}
             <ScrollReveal className="about-float-image-right" animation="slide-left" delay={300}>
-              <img 
-                src="/assets/about-engineer-right.png" 
-                alt="Technicians configuring monitor screens" 
+              <img
+                src="/assets/about-engineer-right.png"
+                alt="Technicians configuring monitor screens"
               />
             </ScrollReveal>
 
             {/* Bottom-right stats frosted card */}
             <ScrollReveal className="about-stats-card-overlay" animation="scale-in" delay={400}>
               <div className="about-stats-list">
-                
+
                 <div className="about-stat-item">
                   <div className="about-stat-icon-wrap bg-soft-green text-brand-green">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -328,7 +332,7 @@ function Home() {
           <ScrollReveal animation="fade-up" delay={100}>
             <p className="eyebrow green-eyebrow">ABOUT INNOBEATS TECHNOLOGY</p>
             <h2 id="about-heading" className="about-main-heading">
-              Transforming Healthcare Infrastructure Through Technology, Expertise &amp; Long-Term Partnership
+              Transforming Healthcare <span className="text-brand-green">Infrastructure</span> Through Technology, <span className="text-brand-blue">Expertise</span> &amp; <span className="text-brand-blue">Long-Term Partnership</span>
             </h2>
             <p className="about-main-copy">
               For over 23 years, Innobeats Technology has empowered hospitals, healthcare institutions, and
@@ -424,8 +428,10 @@ function Home() {
       {/* --- Team Section --- */}
       <section className="section team-section">
         <ScrollReveal className="section-heading" animation="fade-up" delay={100}>
-          <p className="eyebrow">Team</p>
-          <h2>Specialists for clinical technology and hospital infrastructure.</h2>
+          <p className="eyebrow green-eyebrow">OUR EXPERT TEAM</p>
+          <h2>
+            Specialists for clinical <span className="text-brand-green">technology</span> and hospital <span className="text-brand-blue">infrastructure</span>.
+          </h2>
           <p>
             Our team structure is built around the people hospitals work with most: clinical application, infrastructure
             planning, quality documentation, and service support.
@@ -433,17 +439,17 @@ function Home() {
         </ScrollReveal>
         <div className="team-grid">
           <ScrollReveal as="article" className="team-card" animation="fade-up" delay={100}>
-            <span className="team-avatar">CA</span>
+            <span className="team-avatar-badge bg-soft-green text-brand-green">CA</span>
             <h3>Clinical Applications</h3>
             <p>Supports product fit, workflow orientation, and user confidence for care teams.</p>
           </ScrollReveal>
           <ScrollReveal as="article" className="team-card" animation="fade-up" delay={250}>
-            <span className="team-avatar">IP</span>
+            <span className="team-avatar-badge bg-soft-blue text-brand-blue">IP</span>
             <h3>Infrastructure Planning</h3>
             <p>Coordinates OT, MGPS, pendants, lighting, integration, and nurse call project requirements.</p>
           </ScrollReveal>
           <ScrollReveal as="article" className="team-card" animation="fade-up" delay={400}>
-            <span className="team-avatar">QS</span>
+            <span className="team-avatar-badge bg-soft-orange text-brand-orange">QS</span>
             <h3>Quality &amp; Service</h3>
             <p>Focuses on documentation, handover, preventive maintenance, and technical response.</p>
           </ScrollReveal>
@@ -458,35 +464,77 @@ function Home() {
       {/* --- Clients Section --- */}
       <section className="section clients-section">
         <ScrollReveal className="section-heading" animation="fade-up" delay={100}>
-          <p className="eyebrow">Clients</p>
-          <h2>Built for hospitals, specialty centers, and high-acuity care environments.</h2>
+          <p className="eyebrow green-eyebrow">OUR CLIENT SEGMENTS</p>
+          <h2>
+            Built for hospitals, <span className="text-brand-blue">specialty centers</span>, and high-acuity care.
+          </h2>
           <p>
             Innobeats solutions are positioned for institutions that need reliable equipment, clean project delivery,
             and dependable support.
           </p>
         </ScrollReveal>
         <div className="client-grid" aria-label="Client segments">
-          <ScrollReveal as="div" className="client-logo" animation="scale-in" delay={50}>Multi-specialty Hospitals</ScrollReveal>
-          <ScrollReveal as="div" className="client-logo" animation="scale-in" delay={120}>ICU &amp; NICU Units</ScrollReveal>
-          <ScrollReveal as="div" className="client-logo" animation="scale-in" delay={190}>Surgical Centers</ScrollReveal>
-          <ScrollReveal as="div" className="client-logo" animation="scale-in" delay={260}>IVF Labs</ScrollReveal>
-          <ScrollReveal as="div" className="client-logo" animation="scale-in" delay={330}>Oncology Centers</ScrollReveal>
-          <ScrollReveal as="div" className="client-logo" animation="scale-in" delay={400}>Biomedical Teams</ScrollReveal>
+          <ScrollReveal as="div" className="client-card" animation="scale-in" delay={50}>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="client-icon text-brand-blue">
+              <path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4" />
+              <path d="M10 7h4M12 5v4" strokeWidth="2.5" />
+            </svg>
+            <span>Multi-specialty Hospitals</span>
+          </ScrollReveal>
+          <ScrollReveal as="div" className="client-card" animation="scale-in" delay={120}>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="client-icon text-brand-green">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+            <span>ICU &amp; NICU Units</span>
+          </ScrollReveal>
+          <ScrollReveal as="div" className="client-card" animation="scale-in" delay={190}>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="client-icon text-brand-navy">
+              <circle cx="6" cy="6" r="3" />
+              <circle cx="6" cy="18" r="3" />
+              <line x1="9.8" y1="8.2" x2="22" y2="20" />
+              <line x1="9.8" y1="15.8" x2="22" y2="4" />
+            </svg>
+            <span>Surgical Centers</span>
+          </ScrollReveal>
+          <ScrollReveal as="div" className="client-card" animation="scale-in" delay={260}>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="client-icon text-brand-orange">
+              <path d="M12 2a5 5 0 0 0-5 5v10a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5zM12 7v6M9 10h6" />
+            </svg>
+            <span>IVF Labs</span>
+          </ScrollReveal>
+          <ScrollReveal as="div" className="client-card" animation="scale-in" delay={330}>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="client-icon text-brand-yellow">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
+            </svg>
+            <span>Oncology Centers</span>
+          </ScrollReveal>
+          <ScrollReveal as="div" className="client-card" animation="scale-in" delay={400}>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="client-icon text-brand-blue">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77z" />
+            </svg>
+            <span>Biomedical Teams</span>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* --- Blogs Section --- */}
       <section className="section blog-section">
         <ScrollReveal className="section-heading" animation="fade-up" delay={100}>
-          <p className="eyebrow">Blogs</p>
-          <h2>Insights for hospital planners and clinical technology teams.</h2>
+          <p className="eyebrow green-eyebrow">LATEST INSIGHTS &amp; UPDATES</p>
+          <h2>
+            Insights for hospital <span className="text-brand-green">planners</span> and clinical <span className="text-brand-blue">teams</span>.
+          </h2>
           <p>Use this section for educational articles, product explainers, standards updates, and project planning guidance.</p>
         </ScrollReveal>
         <div className="blog-grid">
           <ScrollReveal as="article" className="blog-card" animation="fade-up" delay={100}>
-            <img src="/assets/critical-care-ventilator.jpg" alt="Ventilator used in ICU care" />
-            <div>
-              <p className="eyebrow">Critical care</p>
+            <div className="blog-image-wrap">
+              <img src="/assets/critical-care-ventilator.jpg" alt="Ventilator used in ICU care" />
+            </div>
+            <div className="blog-card-details">
+              <span className="blog-tag-pill bg-soft-green text-brand-green">Critical care</span>
               <h3>Choosing ICU ventilators across invasive, NIV, HFNC, and transport use cases</h3>
               <p>A practical buying framework for matching respiratory support technology to acuity, mobility, and staffing.</p>
               <Link className="text-link" to="/critical-care-surgical-solutions.html#icu-ventilators">
@@ -495,9 +543,11 @@ function Home() {
             </div>
           </ScrollReveal>
           <ScrollReveal as="article" className="blog-card" animation="fade-up" delay={250}>
-            <img src="/assets/operating-theatre.jpg" alt="Modern operating theatre with surgical lighting" />
-            <div>
-              <p className="eyebrow">Infrastructure</p>
+            <div className="blog-image-wrap">
+              <img src="/assets/operating-theatre.jpg" alt="Modern operating theatre with surgical lighting" />
+            </div>
+            <div className="blog-card-details">
+              <span className="blog-tag-pill bg-soft-blue text-brand-blue">Infrastructure</span>
               <h3>What to plan before a modular OT or smart OR integration project</h3>
               <p>Room layout, utilities, infection-control surfaces, pendants, lights, and control systems all need early alignment.</p>
               <Link className="text-link" to="/turnkey-hospital-infrastructure.html">
@@ -506,9 +556,11 @@ function Home() {
             </div>
           </ScrollReveal>
           <ScrollReveal as="article" className="blog-card" animation="fade-up" delay={400}>
-            <img src="/assets/air-decontamination.jpg" alt="Air purification equipment for clinical spaces" />
-            <div>
-              <p className="eyebrow">Infection control</p>
+            <div className="blog-image-wrap">
+              <img src="/assets/air-decontamination.jpg" alt="Air purification equipment for clinical spaces" />
+            </div>
+            <div className="blog-card-details">
+              <span className="blog-tag-pill bg-soft-orange text-brand-orange">Infection control</span>
               <h3>Air decontamination considerations for high-risk clinical spaces</h3>
               <p>How ICUs, NICUs, OTs, IVF labs, oncology units, and BSL labs can evaluate air safety requirements.</p>
               <Link className="text-link" to="/infection-control-air-decontamination.html">
@@ -523,7 +575,7 @@ function Home() {
       <ScrollReveal className="band" animation="fade-up" delay={100} as="section">
         <span className="cta-pill">READY TO TRANSFORM YOUR HEALTHCARE INFRASTRUCTURE?</span>
         <h2>
-          Let's <span className="highlight">Build the Future</span> of Healthcare Together
+          Let's <span className="text-brand-green">Build the Future</span> of Healthcare Together
         </h2>
         <p className="cta-description">
           Unlock innovation with our advanced platform. Seamlessly integrate modern technology
