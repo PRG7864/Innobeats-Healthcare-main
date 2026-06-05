@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ScrollReveal from "../components/ScrollReveal";
+import ImpactPartnerships from "../components/ImpactPartnerships";
 
 function Home() {
   return (
@@ -78,6 +79,9 @@ function Home() {
           <span>Lifecycle Services</span>
         </ScrollReveal>
       </section>
+
+      {/* --- Impact & Partnerships Section --- */}
+      <ImpactPartnerships />
 
       {/* --- Product Ecosystem Section --- */}
       <section className="section product-section">
@@ -366,13 +370,22 @@ function Home() {
 
       {/* --- Footer CTA / Procurement ready Section --- */}
       <ScrollReveal className="band" animation="fade-up" delay={100} as="section">
-        <div>
-          <p className="eyebrow">Procurement ready</p>
-          <h2>Get product documentation for your next hospital technology project.</h2>
+        <span className="cta-pill">READY TO TRANSFORM YOUR HEALTHCARE INFRASTRUCTURE?</span>
+        <h2>
+          Let's <span className="highlight">Build the Future</span> of Healthcare Together
+        </h2>
+        <p className="cta-description">
+          Unlock innovation with our advanced platform. Seamlessly integrate modern technology
+          and expert solutions to accelerate your healthcare mission.
+        </p>
+        <div className="cta-actions">
+          <Link className="button cta-primary" to="/contact.html">
+            Start your conversation
+          </Link>
+          <Link className="button cta-secondary" to="/category-operating-theatre.html">
+            Explore Solutions
+          </Link>
         </div>
-        <Link className="button light" to="/contact.html">
-          Request Consultation
-        </Link>
       </ScrollReveal>
     </main>
   );
