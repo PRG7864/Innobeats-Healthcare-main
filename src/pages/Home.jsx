@@ -1,8 +1,126 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import ScrollReveal from "../components/ScrollReveal";
 import ImpactPartnerships from "../components/ImpactPartnerships";
 
+// Simple SVG social icon components helper
+function LinkedInIcon({ className }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
+function ArrowRightIcon({ className, size = 16 }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      width={size}
+      height={size}
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+  );
+}
+
+const team = [
+  {
+    name: "Dr. Rajiv Mehta",
+    title: "Chief Executive Officer",
+    img: "https://randomuser.me/api/portraits/men/32.jpg",
+    quote: "Clinical excellence through engineering precision.",
+  },
+  {
+    name: "Arjun Nair",
+    title: "Head of Biomedical Engineering",
+    img: "https://randomuser.me/api/portraits/men/65.jpg",
+    quote: "Ensuring clinical technology operates at peak safety and efficiency.",
+  },
+  {
+    name: "Ms. Priya Sharma",
+    title: "Director, Clinical Solutions",
+    img: "https://randomuser.me/api/portraits/women/68.jpg",
+    quote: "Patient-first operational workflows are our highest priority.",
+  },
+  {
+    name: "Mr. Vinay Kumar",
+    title: "Chief Operating Officer",
+    img: "https://randomuser.me/api/portraits/men/15.jpg",
+    quote: "Operational excellence translates directly to saved lives.",
+  },
+  {
+    name: "Mr. Amit Patel",
+    title: "VP, Infrastructure Projects",
+    img: "https://randomuser.me/api/portraits/men/47.jpg",
+    quote: "Delivering modular operating theatres and smart clinical environments.",
+  },
+  {
+    name: "Ms. Sneha Reddy",
+    title: "Lead Biomedical Researcher",
+    img: "https://randomuser.me/api/portraits/women/18.jpg",
+    quote: "Researching filter-less nanotechnology to exceed global air standards.",
+  },
+  {
+    name: "Mr. Rohan Das",
+    title: "Lead Systems Architect",
+    img: "https://randomuser.me/api/portraits/men/33.jpg",
+    quote: "Architecting secure, compliant digital health and OR integration frameworks.",
+  }
+];
+
+const getCardDistance = (idx, activeIndex, total = 7) => {
+  let diff = idx - activeIndex;
+  if (diff < -3) diff += total;
+  if (diff > 3) diff -= total;
+  return diff;
+};
+
+const getCardClasses = (distance) => {
+  const baseClasses = "absolute w-[220px] md:w-[280px] transition-all duration-500 ease-in-out flex flex-col items-center premium-card p-5 md:p-8 border origin-center top-1/2 -translate-y-1/2 opacity-100";
+
+  switch (distance) {
+    case 0:
+      return `${baseClasses} left-1/2 -translate-x-1/2 z-50 scale-110 md:scale-115 shadow-2xl shadow-brand-blue/20 border-brand-blue/30 rounded-2xl pointer-events-auto`;
+    case -1:
+      return `${baseClasses} left-[calc(50%-190px)] md:left-[calc(50%-250px)] -translate-x-1/2 z-40 scale-100 shadow-xl border-brand-blue/10 cursor-pointer pointer-events-auto`;
+    case 1:
+      return `${baseClasses} left-[calc(50%+190px)] md:left-[calc(50%+250px)] -translate-x-1/2 z-40 scale-100 shadow-xl border-brand-blue/10 cursor-pointer pointer-events-auto`;
+    case -2:
+      return `${baseClasses} left-[calc(50%-360px)] md:left-[calc(50%-460px)] -translate-x-1/2 z-30 scale-90 shadow-md border-brand-blue/5 cursor-pointer pointer-events-auto`;
+    case 2:
+      return `${baseClasses} left-[calc(50%+360px)] md:left-[calc(50%+460px)] -translate-x-1/2 z-30 scale-90 shadow-md border-brand-blue/5 cursor-pointer pointer-events-auto`;
+    case -3:
+      return `${baseClasses} left-[calc(50%-510px)] md:left-[calc(50%-650px)] -translate-x-1/2 z-20 scale-80 shadow-sm border-brand-blue/5 cursor-pointer pointer-events-auto`;
+    case 3:
+      return `${baseClasses} left-[calc(50%+510px)] md:left-[calc(50%+650px)] -translate-x-1/2 z-20 scale-80 shadow-sm border-brand-blue/5 cursor-pointer pointer-events-auto`;
+    default:
+      return `${baseClasses} left-1/2 -translate-x-1/2 opacity-0 pointer-events-none scale-50 z-0`;
+  }
+};
+
 function Home() {
+  const [activeIndex, setActiveIndex] = useState(3);
+  const [isExpanded, setIsExpanded] = useState(false);
   return (
     <main id="top">
       {/* --- Hero Section --- */}
@@ -88,7 +206,7 @@ function Home() {
         <ScrollReveal className="product-section-left" animation="fade-up" delay={100}>
           <p className="eyebrow green-eyebrow">INNOVATION FOR LIFE</p>
           <h2>
-            Technology Engineered for the <span className="text-brand-green">Demands</span> of <span className="text-brand-blue">Modern Care</span>.
+            Technology Engineered for the <span className="">Demands</span> of <span className="text-brand-green">Modern Care</span>.
           </h2>
           <p className="large-copy">
             From critical care environments to advanced surgical infrastructure, our solutions are designed to enhance clinical performance, operational efficiency, and patient safety.
@@ -206,7 +324,7 @@ function Home() {
         <ScrollReveal className="section-heading" animation="fade-up" delay={100}>
           <p className="eyebrow green-eyebrow">HOW WE SUPPORT HOSPITALS</p>
           <h2>
-            Clear <span className="text-brand-green">specification</span>, careful <span className="text-brand-blue">deployment</span>, accountable <span className="text-brand-navy">service</span>.
+            Clear <span className="text-brand-green">specification</span>, careful <span className="">deployment</span>, accountable <span className="text-brand-navy">service</span>.
           </h2>
         </ScrollReveal>
         <div className="timeline-grid">
@@ -332,7 +450,7 @@ function Home() {
           <ScrollReveal animation="fade-up" delay={100}>
             <p className="eyebrow green-eyebrow">ABOUT INNOBEATS TECHNOLOGY</p>
             <h2 id="about-heading" className="about-main-heading">
-              Transforming Healthcare <span className="text-brand-green">Infrastructure</span> Through Technology, <span className="text-brand-blue">Expertise</span> &amp; <span className="text-brand-blue">Long-Term Partnership</span>
+              Trusted <span className="text-brand-green">Healthcare</span> IT Solutions That Build Scalable, High-Performance Clinical Infrastructure
             </h2>
             <p className="about-main-copy">
               For over 23 years, Innobeats Technology has empowered hospitals, healthcare institutions, and
@@ -426,39 +544,99 @@ function Home() {
       </section>
 
       {/* --- Team Section --- */}
-      <section className="section team-section">
-        <ScrollReveal className="section-heading" animation="fade-up" delay={100}>
-          <p className="eyebrow green-eyebrow">OUR EXPERT TEAM</p>
-          <h2>
-            Specialists for clinical <span className="text-brand-green">technology</span> and hospital <span className="text-brand-blue">infrastructure</span>.
-          </h2>
-          <p>
-            Our team structure is built around the people hospitals work with most: clinical application, infrastructure
-            planning, quality documentation, and service support.
-          </p>
-        </ScrollReveal>
-        <div className="team-grid">
-          <ScrollReveal as="article" className="team-card" animation="fade-up" delay={100}>
-            <span className="team-avatar-badge bg-soft-green text-brand-green">CA</span>
-            <h3>Clinical Applications</h3>
-            <p>Supports product fit, workflow orientation, and user confidence for care teams.</p>
-          </ScrollReveal>
-          <ScrollReveal as="article" className="team-card" animation="fade-up" delay={250}>
-            <span className="team-avatar-badge bg-soft-blue text-brand-blue">IP</span>
-            <h3>Infrastructure Planning</h3>
-            <p>Coordinates OT, MGPS, pendants, lighting, integration, and nurse call project requirements.</p>
-          </ScrollReveal>
-          <ScrollReveal as="article" className="team-card" animation="fade-up" delay={400}>
-            <span className="team-avatar-badge bg-soft-orange text-brand-orange">QS</span>
-            <h3>Quality &amp; Service</h3>
-            <p>Focuses on documentation, handover, preventive maintenance, and technical response.</p>
-          </ScrollReveal>
+      <section className="py-28 lg:py-32 relative overflow-hidden grid-pattern-bg">
+        {/* Soft, glowing brand-blue radial gradients for depth */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-blue/10 blur-[100px] rounded-full -z-10 pointer-events-none" />
+
+        <div className="relative z-10 max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="flex justify-center mb-4">
+              <span className="inline-block text-xs font-bold text-brand-yellow uppercase tracking-widest px-4 py-1.5 rounded-full bg-brand-soft-yellow border border-brand-yellow/20">
+                Leadership
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-navy tracking-tight mb-4">
+              Leadership Driving <span className="text-brand-green">Healthcare Innovation</span> &amp; <span className="text-brand-blue">Clinical Excellence</span>
+            </h2>
+            <p className="text-brand-muted max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+              Our team's combined expertise in healthcare technology, biomedical engineering, and hospital infrastructure accelerates clinical excellence across India.
+            </p>
+
+            {/* Centered Divider with Label */}
+            <div className="relative flex items-center justify-center my-10 max-w-4xl mx-auto">
+              <div className="absolute inset-0 flex items-center" aria-hidden="true">
+                <div className="w-full border-t border-brand-blue/10"></div>
+              </div>
+              <div className="relative">
+                <span className="bg-white px-6 py-2 text-xs font-bold text-brand-navy uppercase tracking-widest rounded-full border border-brand-blue/10 shadow-sm">
+                  23+ Years of Combined Healthcare Expertise
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive Cover-Flow Carousel Container with Grid Background and Blur Glow */}
+          <div className="relative py-12 px-4 md:px-8 overflow-visible rounded-3xl border border-brand-blue/10 bg-brand-wash/10 backdrop-blur-[2px] grid-pattern-bg mb-12 max-w-[92rem] mx-auto min-h-[320px] md:min-h-[380px] flex items-center justify-center">
+            {/* Massive soft radial gradient blur exactly behind the center card */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[400px] bg-brand-blue/10 blur-[60px] md:blur-[100px] rounded-full -z-10 pointer-events-none" />
+
+            {team.map((member, idx) => {
+              // Calculate circular offset distance (-3, -2, -1, 0, 1, 2, 3)
+              const distance = getCardDistance(idx, activeIndex);
+              const isActive = distance === 0;
+              const cardClass = getCardClasses(distance);
+
+              return (
+                <div
+                  key={member.name}
+                  onClick={() => {
+                    if (idx === activeIndex) {
+                      setIsExpanded(true);
+                    } else {
+                      setActiveIndex(idx);
+                    }
+                  }}
+                  className={cardClass}
+                >
+                  {/* Avatar Circle with Verified Checkmark */}
+                  <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-visible mb-4 border-4 border-white shadow-md transition-all duration-300 ring-2 ring-brand-blue/15">
+                    <img src={member.img} alt={member.name} className="w-full h-full object-cover rounded-full" />
+                    {isActive && (
+                      <div className="absolute bottom-0 right-0 w-5 h-5 rounded-full bg-brand-blue border-2 border-white flex items-center justify-center shadow-md">
+                        <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  <h3 className="font-bold text-brand-navy text-xs md:text-sm mb-1 leading-tight text-center">{member.name}</h3>
+                  <p className="text-[9px] md:text-xs text-brand-muted font-semibold leading-normal text-center">{member.title}</p>
+
+                  {/* Conditional Leadership Quote (Active Card Only) */}
+                  {isActive && member.quote && (
+                    <p className="text-[10px] md:text-xs text-brand-muted font-sans italic mt-4 max-w-[220px] text-center border-t border-brand-blue/10 pt-3">
+                      “{member.quote}”
+                    </p>
+                  )}
+
+                  <div className="mt-4 flex items-center gap-2">
+                    <a href="#" className="w-6 h-6 rounded-full bg-brand-wash hover:bg-brand-blue text-brand-blue hover:text-white flex items-center justify-center transition-all duration-200">
+                      <LinkedInIcon className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/team.html" className="group inline-block">
+              <span className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-brand-blue text-brand-blue text-sm font-bold rounded-xl transition-all duration-300 hover:bg-brand-blue hover:text-white hover:scale-[1.02] hover:shadow-[0_10px_20px_rgba(36,89,168,0.25)] cursor-pointer">
+                View Full Team <ArrowRightIcon size={15} className="transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+          </div>
         </div>
-        <ScrollReveal animation="fade-up" delay={200}>
-          <Link className="text-link" to="/team.html">
-            Meet the team
-          </Link>
-        </ScrollReveal>
       </section>
 
       {/* --- Clients Section --- */}
@@ -466,7 +644,7 @@ function Home() {
         <ScrollReveal className="section-heading" animation="fade-up" delay={100}>
           <p className="eyebrow green-eyebrow">OUR CLIENT SEGMENTS</p>
           <h2>
-            Built for hospitals, <span className="text-brand-blue">specialty centers</span>, and high-acuity care.
+            Built for hospitals, <span className="">specialty centers</span>, and high-acuity care.
           </h2>
           <p>
             Innobeats solutions are positioned for institutions that need reliable equipment, clean project delivery,
@@ -520,11 +698,11 @@ function Home() {
       </section>
 
       {/* --- Blogs Section --- */}
-      <section className="section blog-section">
+      <section className="section blog-section" id="blogs">
         <ScrollReveal className="section-heading" animation="fade-up" delay={100}>
-          <p className="eyebrow green-eyebrow">LATEST INSIGHTS &amp; UPDATES</p>
+          <p className="eyebrow green-eyebrow">BLOGS</p>
           <h2>
-            Insights for hospital <span className="text-brand-green">planners</span> and clinical <span className="text-brand-blue">teams</span>.
+            Insights for hospital <span className="text-brand-green">planners</span> and clinical <span className="">teams</span>.
           </h2>
           <p>Use this section for educational articles, product explainers, standards updates, and project planning guidance.</p>
         </ScrollReveal>

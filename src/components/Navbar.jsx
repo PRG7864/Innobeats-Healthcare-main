@@ -147,6 +147,10 @@ function Navbar() {
           </div>
         </details>
 
+        <Link to="/#blogs" onClick={closeMenus}>
+          Blogs
+        </Link>
+
         <NavLink to="/contact.html" onClick={closeMenus}>
           Contact
         </NavLink>
