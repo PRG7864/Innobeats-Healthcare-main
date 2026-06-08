@@ -81,8 +81,8 @@ function CriticalCareSurgicalSolutions() {
                 readiness.
               </p>
               <div className="card-actions">
-                <Link className="button secondary" to="/contact.html">
-                  Request Details
+                <Link className="button primary" to="/contact.html">
+                  Request Catalog
                 </Link>
               </div>
             </div>
@@ -112,8 +112,8 @@ function CriticalCareSurgicalSolutions() {
               <h3>Advanced Patient Monitoring</h3>
               <p>Multi-parameter monitoring for ICUs, step-down units, operating rooms, and recovery areas.</p>
               <div className="card-actions">
-                <Link className="button secondary" to="/contact.html">
-                  Request Details
+                <Link className="button primary" to="/contact.html">
+                  Request Catalog
                 </Link>
               </div>
             </div>
@@ -142,8 +142,8 @@ function CriticalCareSurgicalSolutions() {
               <h3>OR Integration &amp; Surgical Technologies</h3>
               <p>Operating room video, control, data, and equipment integration for efficient surgical coordination.</p>
               <div className="card-actions">
-                <Link className="button secondary" to="/contact.html">
-                  Request Details
+                <Link className="button primary" to="/contact.html">
+                  Request Catalog
                 </Link>
               </div>
             </div>

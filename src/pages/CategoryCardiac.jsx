@@ -90,8 +90,8 @@ function CategoryCardiac() {
                   for cardiac departments.
                 </p>
                 <div className="card-actions">
-                  <Link className="button secondary" to="/contact.html">
-                    Request Details
+                  <Link className="button primary" to="/contact.html">
+                    Request Catalog
                   </Link>
                 </div>
               </div>

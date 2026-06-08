@@ -96,8 +96,8 @@ function CategoryOperatingTheatre() {
                   maintenance planning.
                 </p>
                 <div className="card-actions">
-                  <Link className="button secondary" to="/contact.html">
-                    Plan a Project
+                  <Link className="button primary" to="/contact.html">
+                    Request Catalog
                   </Link>
                 </div>
               </div>

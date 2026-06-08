@@ -82,8 +82,8 @@ function TurnkeyHospitalInfrastructure() {
                 service access.
               </p>
               <div className="card-actions">
-                <Link className="button secondary" to="/contact.html">
-                  Request Details
+                <Link className="button primary" to="/contact.html">
+                  Request Catalog
                 </Link>
               </div>
             </div>
@@ -111,8 +111,8 @@ function TurnkeyHospitalInfrastructure() {
               <h3>Smart OR Integration &amp; Nurse Call Systems</h3>
               <p>Room controls, communication workflows, nurse call, and integrated theatre technology for operational visibility.</p>
               <div className="card-actions">
-                <Link className="button secondary" to="/contact.html">
-                  Request Details
+                <Link className="button primary" to="/contact.html">
+                  Request Catalog
                 </Link>
               </div>
             </div>
