@@ -118,11 +118,10 @@ function Navbar() {
                     {solutions.map((sol) => (
                       <div
                         key={sol.id}
-                        className={`solution-menu-item ${activeCategory === sol.id ? "active" : ""}`}
+                        className={`solution-menu-item ${activeCategory === sol.id ? `active active-${sol.themeColor}` : ""}`}
                         onMouseEnter={() => setActiveCategory(sol.id)}
                       >
                         <Link to={`/${sol.id}.html`} onClick={closeMenus} className="solution-menu-link">
-                          <span className={`sol-bullet bg-brand-${sol.themeColor}`}></span>
                           <div className="sol-text-wrap">
                             <span className="sol-title">{sol.title}</span>
                           </div>
@@ -132,7 +131,7 @@ function Navbar() {
                   </div>
                 </div>
 
-                <div className="products-list-col">
+                <div className="products-list-col animate-menu-panel" key={activeCategory}>
                   {(() => {
                     const activeSol = solutions.find((s) => s.id === activeCategory) || solutions[0];
                     return (

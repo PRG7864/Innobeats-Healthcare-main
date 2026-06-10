@@ -2088,11 +2088,33 @@ textarea {
 
 .solution-menu-item {
   border-radius: 8px;
-  transition: all 0.25s ease-in-out;
+  border-left: 3px solid transparent;
+  padding-left: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.solution-menu-item.active {
-  background: var(--wash);
+.solution-menu-item.active.active-green {
+  background: rgba(0, 155, 90, 0.06);
+  border-left-color: var(--green);
+  padding-left: 12px;
+}
+
+.solution-menu-item.active.active-blue {
+  background: rgba(36, 89, 168, 0.06);
+  border-left-color: var(--blue);
+  padding-left: 12px;
+}
+
+.solution-menu-item.active.active-orange {
+  background: rgba(255, 102, 0, 0.06);
+  border-left-color: #ff6600;
+  padding-left: 12px;
+}
+
+.solution-menu-item.active.active-yellow {
+  background: rgba(246, 189, 33, 0.06);
+  border-left-color: var(--yellow);
+  padding-left: 12px;
 }
 
 .solution-menu-link {
@@ -2111,26 +2133,7 @@ textarea {
   display: none !important;
 }
 
-.sol-bullet {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
 
-/* Bullet Dynamic Theme Colors */
-.bg-brand-green {
-  background-color: var(--green) !important;
-}
-.bg-brand-blue {
-  background-color: var(--blue) !important;
-}
-.bg-brand-orange {
-  background-color: var(--brand-orange, #ff6600) !important;
-}
-.bg-brand-yellow {
-  background-color: var(--yellow) !important;
-}
 
 /* Products Column (Right) */
 .products-list-col {
@@ -2318,4 +2321,20 @@ textarea {
   .mobile-prod-link:after {
     display: none !important;
   }
+}
+
+/* Products Panel Entrance Animation */
+@keyframes menuPanelEntry {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-panel {
+  animation: menuPanelEntry 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
