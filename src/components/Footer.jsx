@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 
 const productLinks = [
-  { label: "Critical Care & Surgical", href: "/critical-care-surgical-solutions.html" },
-  { label: "Hospital Infrastructure", href: "/turnkey-hospital-infrastructure.html" },
-  { label: "Infection Control", href: "/infection-control-air-decontamination.html" },
-  { label: "Imaging & Oncology", href: "/imaging-oncology-platforms.html" },
+  { label: "Infection Prevention & Air Decontamination", href: "/infection-prevention-air-decontamination.html" },
+  { label: "Hospital Infrastructure & Modular Solutions", href: "/hospital-infrastructure-modular-solutions.html" },
+  { label: "Advanced Neuroscience & Onco Therapies", href: "/advanced-neuroscience-onco-therapies.html" },
+  { label: "Medical Imaging & Emerging Technologies", href: "/medical-imaging-emerging-technologies.html" },
+  { label: "Cardiac Science & CRM", href: "/cardiac-science-crm.html" }
 ];
 
 const companyLinks = [
@@ -12,6 +13,8 @@ const companyLinks = [
   { label: "Mission & Vision", href: "/mission-vision.html" },
   { label: "Our Team", href: "/team.html" },
   { label: "Values & Ethics", href: "/values-ethics.html" },
+  { label: "Partners", href: "/partners.html" },
+  { label: "Careers", href: "/careers.html" }
 ];
 
 const quickLinks = [

@@ -18,7 +18,7 @@ function ProductPacemaker() {
             <Link className="button primary" to="/contact.html">
               Request Data Sheet
             </Link>
-            <Link className="button secondary" to="/category-cardiac.html">
+            <Link className="button secondary" to="/cardiac-science-crm.html">
               Back to Category
             </Link>
           </div>

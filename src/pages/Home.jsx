@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import ScrollReveal from "../components/ScrollReveal";
 import ImpactPartnerships from "../components/ImpactPartnerships";
+import { solutions } from "../data/solutionsData";
 
 // Simple SVG social icon components helper
 function LinkedInIcon({ className }) {
@@ -125,29 +126,29 @@ function Home() {
     <main id="top">
       {/* --- Hero Section --- */}
       <section className="hero medical-hero" aria-labelledby="hero-title">
-        <div className="hero-media" role="img" aria-label="Clinicians monitoring a patient in a modern medical environment"></div>
+        <div className="hero-media" role="img" aria-label="Modern clinical healthcare environment with advanced technology"></div>
         <div className="hero-shade"></div>
         <div className="hero-content">
           <p className="eyebrow animate-load-fade-up-1 text-brand-yellow">INNOVATION FOR LIFE</p>
           <h1 id="hero-title" className="animate-load-fade-up-1">
-            Transforming <span className="text-brand-green">Healthcare</span> Through Advanced <span className="text-brand-green">Medical Technology</span>
+            Global <span className="text-brand-green">Healthcare Innovation</span> Built on <span className="text-brand-green">Clinical Excellence</span>
           </h1>
           <p className="hero-copy animate-load-fade-up-2">
-            From critical care ventilators to modular operating theatres, 23 years of frontline clinical expertise powering healthcare transformation across Madhya Pradesh and Chhattisgarh.
+            Empowering hospitals and clinical teams with advanced medical technologies, modular healthcare infrastructure solutions, and long-term technology partnerships.
           </p>
           <div className="hero-actions animate-load-fade-up-3">
-            <Link className="button primary" to="/critical-care-surgical-solutions.html">
-              Explore Critical Care
+            <Link className="button primary" to="/hospital-infrastructure-modular-solutions.html">
+              Explore Solutions
             </Link>
-            <Link className="button secondary" to="/turnkey-hospital-infrastructure.html">
-              View Hospital Infrastructure
+            <Link className="button secondary" to="/partners.html">
+              Our Technology Partners
             </Link>
           </div>
         </div>
         <aside className="hero-panel animate-load-slide-left" aria-label="Innobeats product focus">
-          <span>Featured Systems</span>
-          <Link to="/critical-care-surgical-solutions.html">Critical Care &amp; Surgical Solutions</Link>
-          <Link to="/infection-control-air-decontamination.html">Air Decontamination Systems</Link>
+          <span>Strategic Solutions</span>
+          <Link to="/infection-prevention-air-decontamination.html">Infection Prevention &amp; Air Decontamination</Link>
+          <Link to="/cardiac-science-crm.html">Cardiac Science &amp; CRM</Link>
         </aside>
       </section>
 
@@ -204,118 +205,48 @@ function Home() {
       {/* --- Product Ecosystem Section --- */}
       <section className="section product-section">
         <ScrollReveal className="product-section-left" animation="fade-up" delay={100}>
-          <p className="eyebrow green-eyebrow">INNOVATION FOR LIFE</p>
+          <p className="eyebrow green-eyebrow">STRATEGIC FOCUS AREAS</p>
           <h2>
-            Technology Engineered for the <span className="">Demands</span> of <span className="text-brand-green">Modern Care</span>.
+            Healthcare Technology <span className="text-brand-green">&amp; Solutions Portfolio</span>
           </h2>
           <p className="large-copy">
-            From critical care environments to advanced surgical infrastructure, our solutions are designed to enhance clinical performance, operational efficiency, and patient safety.
+            Our portfolio is organized by specialized clinical and infrastructure domains, aligning technology deployment with patient safety, operational efficiency, and long-term care value.
           </p>
           <div className="product-section-action">
-            <Link className="button primary" to="/critical-care-surgical-solutions.html">
-              Explore Solutions
+            <Link className="button primary" to="/contact.html">
+              Inquire About Solutions
             </Link>
           </div>
         </ScrollReveal>
 
         <div className="product-grid-right">
-          <ScrollReveal as="div" animation="fade-up" delay={100}>
-            <Link to="/critical-care-surgical-solutions.html" className="product-card-link-wrapper">
-              <article className="product-grid-card">
-                <div className="product-card-media">
-                  <div className="product-card-image-wrap">
-                    <img src="/assets/critical-care-ventilator.jpg" alt="Medical ventilator and critical care equipment" />
+          {solutions.map((sol, index) => (
+            <ScrollReveal as="div" animation="fade-up" delay={100 + index * 50} key={sol.id}>
+              <Link to={`/${sol.id}.html`} className="product-card-link-wrapper">
+                <article className="product-grid-card">
+                  <div className="product-card-media">
+                    <div className="product-card-image-wrap">
+                      <img src={sol.heroImage} alt={sol.title} />
+                    </div>
+                    <div className="product-badge-icon">
+                      <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        {sol.id === "infection-prevention-air-decontamination" && <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />}
+                        {sol.id === "hospital-infrastructure-modular-solutions" && <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />}
+                        {sol.id === "advanced-neuroscience-onco-therapies" && <circle cx="12" cy="12" r="10" />}
+                        {sol.id === "medical-imaging-emerging-technologies" && <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />}
+                        {sol.id === "cardiac-science-crm" && <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />}
+                      </svg>
+                    </div>
+                    <div className={`product-accent-tab bg-brand-${sol.themeColor}`}></div>
                   </div>
-                  <div className="product-badge-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M4.8 2.3A2.4 2.4 0 1 0 9.6 2.3a2.4 2.4 0 1 0-4.8 0z" />
-                      <path d="M14.4 2.3A2.4 2.4 0 1 0 19.2 2.3a2.4 2.4 0 1 0-4.8 0z" />
-                      <path d="M7.2 4.7v5.3a4.8 4.8 0 0 0 9.6 0V4.7" />
-                      <path d="M12 10v6a3 3 0 0 0 3 3h2" />
-                      <circle cx="19" cy="19" r="2" />
-                    </svg>
+                  <div className="product-card-details">
+                    <h3>{sol.title}</h3>
+                    <p>{sol.heading}</p>
                   </div>
-                  <div className="product-accent-tab"></div>
-                </div>
-                <div className="product-card-details">
-                  <h3>Critical Care Excellence</h3>
-                  <p>Supporting clinicians when every second matters.</p>
-                </div>
-              </article>
-            </Link>
-          </ScrollReveal>
-
-          <ScrollReveal as="div" animation="fade-up" delay={250}>
-            <Link to="/turnkey-hospital-infrastructure.html" className="product-card-link-wrapper">
-              <article className="product-grid-card">
-                <div className="product-card-media">
-                  <div className="product-card-image-wrap">
-                    <img src="/assets/operating-theatre.jpg" alt="Operating theatre with surgical equipment and lighting" />
-                  </div>
-                  <div className="product-badge-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="6" cy="6" r="3" />
-                      <circle cx="6" cy="18" r="3" />
-                      <line x1="9.8" y1="8.2" x2="22" y2="20" />
-                      <line x1="9.8" y1="15.8" x2="22" y2="4" />
-                    </svg>
-                  </div>
-                  <div className="product-accent-tab"></div>
-                </div>
-                <div className="product-card-details">
-                  <h3>Precision Surgical Environments</h3>
-                  <p>Infrastructure designed for modern operating theatres.</p>
-                </div>
-              </article>
-            </Link>
-          </ScrollReveal>
-
-          <ScrollReveal as="div" animation="fade-up" delay={100}>
-            <Link to="/infection-control-air-decontamination.html" className="product-card-link-wrapper">
-              <article className="product-grid-card">
-                <div className="product-card-media">
-                  <div className="product-card-image-wrap">
-                    <img src="/assets/air-decontamination.jpg" alt="Air decontamination and purification equipment" />
-                  </div>
-                  <div className="product-badge-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    </svg>
-                  </div>
-                  <div className="product-accent-tab"></div>
-                </div>
-                <div className="product-card-details">
-                  <h3>Safer Clinical Spaces</h3>
-                  <p>Advanced air quality and contamination control.</p>
-                </div>
-              </article>
-            </Link>
-          </ScrollReveal>
-
-          <ScrollReveal as="div" animation="fade-up" delay={250}>
-            <Link to="/imaging-oncology-platforms.html" className="product-card-link-wrapper">
-              <article className="product-grid-card">
-                <div className="product-card-media">
-                  <div className="product-card-image-wrap">
-                    <img src="/assets/imaging-radiography.jpg" alt="Digital radiography medical imaging equipment" />
-                  </div>
-                  <div className="product-badge-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                      <line x1="8" y1="21" x2="16" y2="21" />
-                      <line x1="12" y1="17" x2="12" y2="21" />
-                      <path d="M6 10h2.5l1.5-3.5 2 7 1.5-4.5 1.5 2H18" />
-                    </svg>
-                  </div>
-                  <div className="product-accent-tab"></div>
-                </div>
-                <div className="product-card-details">
-                  <h3>Diagnostic Confidence</h3>
-                  <p>Technology that enables accurate clinical decisions.</p>
-                </div>
-              </article>
-            </Link>
-          </ScrollReveal>
+                </article>
+              </Link>
+            </ScrollReveal>
+          ))}
         </div>
       </section>
 
@@ -715,7 +646,7 @@ function Home() {
               <span className="blog-tag-pill bg-soft-green text-brand-green">Critical care</span>
               <h3>Choosing ICU ventilators across invasive, NIV, HFNC, and transport use cases</h3>
               <p>A practical buying framework for matching respiratory support technology to acuity, mobility, and staffing.</p>
-              <Link className="text-link" to="/critical-care-surgical-solutions.html#icu-ventilators">
+              <Link className="text-link" to="/hospital-infrastructure-modular-solutions.html#icu-infrastructure-solutions">
                 Read topic
               </Link>
             </div>
@@ -728,7 +659,7 @@ function Home() {
               <span className="blog-tag-pill bg-soft-blue text-brand-blue">Infrastructure</span>
               <h3>What to plan before a modular OT or smart OR integration project</h3>
               <p>Room layout, utilities, infection-control surfaces, pendants, lights, and control systems all need early alignment.</p>
-              <Link className="text-link" to="/turnkey-hospital-infrastructure.html">
+              <Link className="text-link" to="/hospital-infrastructure-modular-solutions.html#modular-operation-theatres">
                 Read topic
               </Link>
             </div>
@@ -741,7 +672,7 @@ function Home() {
               <span className="blog-tag-pill bg-soft-orange text-brand-orange">Infection control</span>
               <h3>Air decontamination considerations for high-risk clinical spaces</h3>
               <p>How ICUs, NICUs, OTs, IVF labs, oncology units, and BSL labs can evaluate air safety requirements.</p>
-              <Link className="text-link" to="/infection-control-air-decontamination.html">
+              <Link className="text-link" to="/infection-prevention-air-decontamination.html">
                 Read topic
               </Link>
             </div>

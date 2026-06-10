@@ -1,24 +1,48 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { solutions } from "../data/solutionsData";
 
-const productPaths = [
-  "/critical-care-surgical-solutions.html",
-  "/turnkey-hospital-infrastructure.html",
-  "/infection-control-air-decontamination.html",
-  "/imaging-oncology-platforms.html",
-  "/product-pacemaker.html",
-  "/product-ot-module.html",
-  "/category-operating-theatre.html",
+const solutionPaths = [
+  "/infection-prevention-air-decontamination.html",
+  "/hospital-infrastructure-modular-solutions.html",
+  "/advanced-neuroscience-onco-therapies.html",
+  "/medical-imaging-emerging-technologies.html",
+  "/cardiac-science-crm.html",
 ];
 
-const companyPaths = ["/about.html", "/mission-vision.html", "/team.html", "/values-ethics.html"];
+const productPaths = [
+  "/product-pacemaker.html",
+  "/product-ot-module.html",
+];
+
+const companyPaths = [
+  "/about.html",
+  "/mission-vision.html",
+  "/team.html",
+  "/values-ethics.html",
+  "/partners.html",
+  "/careers.html",
+];
 
 function Navbar() {
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
+  const [activeCategory, setActiveCategory] = useState("infection-prevention-air-decontamination");
+  const [isMobile, setIsMobile] = useState(false);
+
+  const isSolutionPage = solutionPaths.includes(pathname);
   const isProductPage = productPaths.includes(pathname);
   const isCompanyPage = companyPaths.includes(pathname);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 760);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     setIsOpen(false);
@@ -55,71 +79,94 @@ function Navbar() {
         </NavLink>
 
         <details
-          className="nav-menu"
-          open={openMenu === "products"}
-          onToggle={(event) => setOpenMenu(event.currentTarget.open ? "products" : null)}
+          className="nav-menu solutions-menu"
+          open={openMenu === "solutions"}
+          onToggle={(event) => setOpenMenu(event.currentTarget.open ? "solutions" : null)}
         >
-          <summary aria-current={isProductPage ? "page" : undefined}>Products</summary>
-          <div className="mega-menu">
-            <section className="mega-section">
-              <Link className="mega-heading" to="/critical-care-surgical-solutions.html" onClick={closeMenus}>
-                Critical Care &amp; Surgical Solutions
-              </Link>
-              <Link to="/critical-care-surgical-solutions.html#icu-ventilators" onClick={closeMenus}>
-                ICU Ventilators: Invasive, NIV, HFNC, Transport
-              </Link>
-              <Link to="/critical-care-surgical-solutions.html#anaesthesia-workstations" onClick={closeMenus}>
-                Anaesthesia Workstations
-              </Link>
-              <Link to="/critical-care-surgical-solutions.html#advanced-patient-monitoring" onClick={closeMenus}>
-                Advanced Patient Monitoring
-              </Link>
-              <Link to="/critical-care-surgical-solutions.html#or-integration" onClick={closeMenus}>
-                OR Integration &amp; Surgical Technologies
-              </Link>
-            </section>
+          <summary aria-current={isSolutionPage || isProductPage ? "page" : undefined}>Solutions</summary>
+          <div className="mega-menu solutions-mega-menu">
+            {isMobile ? (
+              <div className="mobile-solutions-accordion">
+                {solutions.map((sol) => (
+                  <details key={sol.id} className="mobile-sol-details">
+                    <summary className="mobile-sol-summary">
+                      {sol.title}
+                    </summary>
+                    <div className="mobile-prod-list">
+                      <Link to={`/${sol.id}.html`} onClick={closeMenus} className="mobile-explore-link">
+                        Explore Specialty Landing Page &rarr;
+                      </Link>
+                      {sol.products.map((prod) => (
+                        <Link
+                          key={prod.id}
+                          to={`/${sol.id}.html#${prod.id}`}
+                          onClick={closeMenus}
+                          className="mobile-prod-link"
+                        >
+                          {prod.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            ) : (
+              <>
+                <div className="solutions-list-col">
+                  <div className="menu-column-title">Clinical Specialties</div>
+                  <div className="solutions-menu-links-list">
+                    {solutions.map((sol) => (
+                      <div
+                        key={sol.id}
+                        className={`solution-menu-item ${activeCategory === sol.id ? "active" : ""}`}
+                        onMouseEnter={() => setActiveCategory(sol.id)}
+                      >
+                        <Link to={`/${sol.id}.html`} onClick={closeMenus} className="solution-menu-link">
+                          <span className={`sol-bullet bg-brand-${sol.themeColor}`}></span>
+                          <div className="sol-text-wrap">
+                            <span className="sol-title">{sol.title}</span>
+                          </div>
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
-            <section className="mega-section">
-              <Link className="mega-heading" to="/turnkey-hospital-infrastructure.html" onClick={closeMenus}>
-                Turnkey Hospital Infrastructure
-              </Link>
-              <Link to="/turnkey-hospital-infrastructure.html#modular-ots" onClick={closeMenus}>
-                Modular OTs with cleanroom architecture
-              </Link>
-              <Link to="/turnkey-hospital-infrastructure.html#mgps-pendants-lights" onClick={closeMenus}>
-                MGPS, pendants, surgical lights
-              </Link>
-              <Link to="/turnkey-hospital-infrastructure.html#smart-or-nurse-call" onClick={closeMenus}>
-                Smart OR integration &amp; nurse call systems
-              </Link>
-            </section>
-
-            <section className="mega-section">
-              <Link className="mega-heading" to="/infection-control-air-decontamination.html" onClick={closeMenus}>
-                Infection Control &amp; Air Decontamination
-              </Link>
-              <Link to="/infection-control-air-decontamination.html#critical-spaces" onClick={closeMenus}>
-                ICUs, NICUs, OTs, IVF, Oncology &amp; BSL-3 labs
-              </Link>
-              <Link to="/infection-control-air-decontamination.html#nanotechnology" onClick={closeMenus}>
-                CE-certified filter-less nanotechnology
-              </Link>
-            </section>
-
-            <section className="mega-section">
-              <Link className="mega-heading" to="/imaging-oncology-platforms.html" onClick={closeMenus}>
-                Imaging &amp; Oncology Platforms
-              </Link>
-              <Link to="/imaging-oncology-platforms.html#digital-radiography" onClick={closeMenus}>
-                Digital Radiography Systems
-              </Link>
-              <Link to="/imaging-oncology-platforms.html#radiation-oncology" onClick={closeMenus}>
-                GammaPod, SGRT, Proton Therapy, BNCT
-              </Link>
-              <Link to="/imaging-oncology-platforms.html#neuro-ortho-imaging" onClick={closeMenus}>
-                Neuro &amp; Ortho Imaging Solutions
-              </Link>
-            </section>
+                <div className="products-list-col">
+                  {(() => {
+                    const activeSol = solutions.find((s) => s.id === activeCategory) || solutions[0];
+                    return (
+                      <>
+                        <div className="menu-column-title">
+                          Products &amp; Systems
+                        </div>
+                        <div className="products-grid-menu">
+                          {activeSol.products.map((prod) => (
+                            <Link
+                              key={prod.id}
+                              to={`/${activeSol.id}.html#${prod.id}`}
+                              onClick={closeMenus}
+                              className="product-menu-item-link"
+                            >
+                              <div className="prod-menu-info">
+                                <span className="prod-title">{prod.title}</span>
+                                <span className="prod-desc">{prod.subtitle}</span>
+                              </div>
+                              <span className="prod-arrow">&rarr;</span>
+                            </Link>
+                          ))}
+                        </div>
+                        <div className="menu-explore-more">
+                          <Link to={`/${activeSol.id}.html`} onClick={closeMenus} className="explore-more-btn">
+                            Explore All {activeSol.shortTitle} Solutions &rarr;
+                          </Link>
+                        </div>
+                      </>
+                    );
+                  })()}
+                </div>
+              </>
+            )}
           </div>
         </details>
 
@@ -128,7 +175,7 @@ function Navbar() {
           open={openMenu === "company"}
           onToggle={(event) => setOpenMenu(event.currentTarget.open ? "company" : null)}
         >
-          <summary aria-current={isCompanyPage ? "page" : undefined}>Company</summary>
+          <summary aria-current={isCompanyPage ? "page" : undefined}>About Us</summary>
           <div className="mega-menu">
             <section className="mega-section">
               <Link className="mega-heading" to="/about.html" onClick={closeMenus}>
@@ -147,12 +194,16 @@ function Navbar() {
           </div>
         </details>
 
-        <Link to="/#blogs" onClick={closeMenus}>
-          Blogs
-        </Link>
+        <NavLink to="/partners.html" onClick={closeMenus}>
+          Partners
+        </NavLink>
+
+        <NavLink to="/careers.html" onClick={closeMenus}>
+          Careers
+        </NavLink>
 
         <NavLink to="/contact.html" onClick={closeMenus}>
-          Contact
+          Contact Us
         </NavLink>
       </nav>
     </header>

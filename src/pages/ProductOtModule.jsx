@@ -18,7 +18,7 @@ function ProductOtModule() {
             <Link className="button primary" to="/contact.html">
               Plan an OT Project
             </Link>
-            <Link className="button secondary" to="/category-operating-theatre.html">
+            <Link className="button secondary" to="/hospital-infrastructure-modular-solutions.html">
               Back to Category
             </Link>
           </div>
