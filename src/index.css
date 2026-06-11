@@ -2338,3 +2338,44 @@ textarea {
 .animate-menu-panel {
   animation: menuPanelEntry 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Chatbot Custom Styles and Animations */
+@keyframes chatbotFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes chatbotScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    transform-origin: bottom right;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transform-origin: bottom right;
+  }
+}
+
+.animate-fade-in {
+  animation: chatbotFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: chatbotScaleIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -13,23 +13,25 @@ import Contact from "./pages/Contact.jsx";
 import SolutionDetail from "./pages/SolutionDetail.jsx";
 import Partners from "./pages/Partners.jsx";
 import Careers from "./pages/Careers.jsx";
+import Chatbot from "./components/Chatbot.jsx";
 
 function App() {
   return (
     <>
       <ScrollToAnchor />
       <Navbar />
+      <Chatbot />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/index.html" element={<Home />} />
-        
+
         {/* Solution Specialty Categories */}
         <Route path="/infection-prevention-air-decontamination.html" element={<SolutionDetail categoryId="infection-prevention-air-decontamination" />} />
         <Route path="/hospital-infrastructure-modular-solutions.html" element={<SolutionDetail categoryId="hospital-infrastructure-modular-solutions" />} />
         <Route path="/advanced-neuroscience-onco-therapies.html" element={<SolutionDetail categoryId="advanced-neuroscience-onco-therapies" />} />
         <Route path="/medical-imaging-emerging-technologies.html" element={<SolutionDetail categoryId="medical-imaging-emerging-technologies" />} />
         <Route path="/cardiac-science-crm.html" element={<SolutionDetail categoryId="cardiac-science-crm" />} />
-        
+
         {/* Fallbacks / Backward Compatibility Links */}
         <Route path="/infection-control-air-decontamination.html" element={<SolutionDetail categoryId="infection-prevention-air-decontamination" />} />
         <Route path="/turnkey-hospital-infrastructure.html" element={<SolutionDetail categoryId="hospital-infrastructure-modular-solutions" />} />
@@ -41,7 +43,7 @@ function App() {
         {/* Product Details */}
         <Route path="/product-pacemaker.html" element={<ProductPacemaker />} />
         <Route path="/product-ot-module.html" element={<ProductOtModule />} />
-        
+
         {/* Company & Other Pages */}
         <Route path="/about.html" element={<About />} />
         <Route path="/mission-vision.html" element={<MissionVision />} />

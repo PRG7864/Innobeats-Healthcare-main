@@ -300,7 +300,7 @@ function SolutionDetail({ categoryId }) {
                   <h3>{product.title}</h3>
                   <p className="font-bold text-brand-navy/90 text-[15px] mt-1">{product.subtitle}</p>
                   <p className="text-brand-muted text-[14px] leading-relaxed mt-2">{product.description}</p>
-                  
+
                   {product.features && (
                     <ul className="mt-4 text-[13px] text-brand-navy/80 font-bold space-y-1.5">
                       {product.features.map((feat, fIdx) => (
