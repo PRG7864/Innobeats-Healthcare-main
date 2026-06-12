@@ -1,6 +1,74 @@
 import { Link } from "react-router-dom";
 import ScrollReveal from "../components/ScrollReveal";
 
+// Custom SVG Logo Components for Enhanced Core Services (Hospital Partners)
+const AnantHospitalLogo = () => (
+  <div className="flex items-center gap-3 bg-[#f8fafc] hover:bg-white border border-slate-100 hover:border-slate-200 rounded-2xl px-5 py-3.5 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+    <svg className="w-6 h-6 text-[#00a699]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.343 3 3 3s3-1.343 3-3-1.343-3-3-3-3 1.343-3 3zm-9 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z" />
+    </svg>
+    <span className="font-extrabold text-xs tracking-wider text-[#153b78] whitespace-nowrap">ANANT HOSPITAL</span>
+  </div>
+);
+
+const SankalpRaipurLogo = () => (
+  <div className="flex items-center gap-3 bg-[#f8fafc] hover:bg-white border border-slate-100 hover:border-slate-200 rounded-2xl px-5 py-3.5 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+    <div className="w-6 h-6 rounded-full bg-[#eaf8f1] flex items-center justify-center border border-[#009b5a]/20">
+      <svg className="w-3.5 h-3.5 text-[#009b5a]" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 3.58 8 8 8s8-3.58 8-8c0-5.52-4.48-10-10-10zm-1.25 15L6.5 12.75l1.41-1.41 2.84 2.83 6.84-6.83 1.41 1.41L10.75 17z" />
+      </svg>
+    </div>
+    <span className="font-extrabold text-xs tracking-wider text-[#153b78] whitespace-nowrap">SANKALP RAIPUR</span>
+  </div>
+);
+
+const ShreeNarayanaLogo = () => (
+  <div className="flex items-center gap-3 bg-[#f8fafc] hover:bg-white border border-slate-100 hover:border-slate-200 rounded-2xl px-5 py-3.5 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+    <div className="w-6 h-6 rounded-full bg-[#f0f4fb] flex items-center justify-center border border-[#2459a8]/20">
+      <svg className="w-3.5 h-3.5 text-[#2459a8]" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+      </svg>
+    </div>
+    <span className="font-extrabold text-xs tracking-wider text-[#153b78] whitespace-nowrap">SHREE NARAYANA RAIPUR</span>
+  </div>
+);
+
+const ChlHospitalLogo = () => (
+  <div className="flex items-center gap-3 bg-[#f8fafc] hover:bg-white border border-slate-100 hover:border-slate-200 rounded-2xl px-5 py-3.5 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+    <svg className="w-6 h-6 text-[#009b5a]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v18m9-9H3M12 12l6.36-6.36M12 12L5.64 18.36M12 12l6.36 6.36M12 12L5.64 5.64" />
+    </svg>
+    <span className="font-extrabold text-xs tracking-wider text-[#153b78] whitespace-nowrap">CHL HOSPITAL</span>
+  </div>
+);
+
+const SuyashHospitalLogo = () => (
+  <div className="flex items-center gap-3 bg-[#f8fafc] hover:bg-white border border-slate-100 hover:border-slate-200 rounded-2xl px-5 py-3.5 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+    <svg className="w-6 h-6 text-[#153b78]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+    </svg>
+    <span className="font-extrabold text-xs tracking-wider text-[#153b78] whitespace-nowrap">SUYASH HOSPITAL</span>
+  </div>
+);
+
+const BhandariHospitalLogo = () => (
+  <div className="flex items-center gap-3 bg-[#f8fafc] hover:bg-white border border-slate-100 hover:border-slate-200 rounded-2xl px-5 py-3.5 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+    <svg className="w-6 h-6 text-[#ff6600]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h1.5l2.25-4.5 3 9 2.25-6 1.5 3h1.5" />
+    </svg>
+    <span className="font-extrabold text-xs tracking-wider text-[#153b78] whitespace-nowrap">BHANDARI HOSPITAL</span>
+  </div>
+);
+
+const ChoithramHospitalLogo = () => (
+  <div className="flex items-center gap-3 bg-[#f8fafc] hover:bg-white border border-slate-100 hover:border-slate-200 rounded-2xl px-5 py-3.5 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+    <svg className="w-6 h-6 text-[#00a699]" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z" />
+    </svg>
+    <span className="font-extrabold text-xs tracking-wider text-[#153b78] whitespace-nowrap">CHOITHRAM HOSPITAL</span>
+  </div>
+);
+
 function Partners() {
   const partnersList = [
     {
@@ -95,6 +163,48 @@ function Partners() {
               </article>
             </ScrollReveal>
           ))}
+        </div>
+      </section>
+
+      {/* Dynamic Services Integration Partners Section */}
+      <section className="section bg-white border-t border-brand-blue/5 py-24">
+        <div className="max-w-[70rem] mx-auto px-6 text-center">
+          <ScrollReveal animation="fade-up" delay={100}>
+            <p className="text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-orange-400 to-blue-600 bg-clip-text text-transparent mb-2">
+              Partnerships That Enhance
+            </p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-navy tracking-tight mb-4">
+              Our Clinical &amp; Engineering Services
+            </h2>
+            <p className="text-brand-muted max-w-2xl mx-auto text-sm md:text-base mb-16 leading-relaxed font-semibold">
+              Collaborating with global medical innovators and technical specialists to power turnkey critical care environments, precise hospital infrastructure planning, and end-to-end clinical lifecycle services.
+            </p>
+          </ScrollReveal>
+
+          <div className="flex flex-col items-center gap-12">
+            {/* First Row of Partner Logos */}
+            <ScrollReveal 
+              className="flex flex-wrap items-center justify-center gap-8 md:gap-12 w-full"
+              animation="fade-up"
+              delay={200}
+            >
+              <AnantHospitalLogo />
+              <SankalpRaipurLogo />
+              <ShreeNarayanaLogo />
+              <ChlHospitalLogo />
+            </ScrollReveal>
+
+            {/* Second Row of Partner Logos (Centered Below) */}
+            <ScrollReveal 
+              className="flex flex-wrap items-center justify-center gap-8 md:gap-12 w-full"
+              animation="fade-up"
+              delay={300}
+            >
+              <SuyashHospitalLogo />
+              <BhandariHospitalLogo />
+              <ChoithramHospitalLogo />
+            </ScrollReveal>
+          </div>
         </div>
       </section>
     </main>
